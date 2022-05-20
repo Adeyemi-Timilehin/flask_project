@@ -1,0 +1,24 @@
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__) 
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://udacitystudios@localhost:5432/example'
+db=SQLAlchemy(app)
+class Person(db.Model):
+    __tablename__='persons'
+    id=db.Column(db.Integer,primary_key=True)
+    name=db.Column(db.string(),nullabe=False)
+db.create_all()
+
+
+   if __name__ == '__main__': 
+        app.debug = True
+    app.run(host='0.0.0.0', port=3000)
+    
+        if __name__ == '__main__': 
+        app.debug = True
+    app.run(host='0.0.0.0', port=3000)
+    
+    
+    sudo -u postgres psql
+    
+    postgresql password:tolu1992
