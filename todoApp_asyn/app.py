@@ -1,6 +1,6 @@
 
 from crypt import methods
-from flask import Flask, render_template,redirect,url_for,request,jsonify
+from flask import Flask, render_template,redirect,url_for,request
 from flask_sqlalchemy import SQLAlchemy
 
 from sqlalchemy import true
@@ -20,13 +20,11 @@ db.create_all()
 
 @app.route('/todos/create', methods=['POST'])
 def create_todo():
-  description = request.get_json()['description']
+  description = request.form.get('description')
   todo = Todo(description=description)
   db.session.add(todo)
   db.session.commit()
-  return jsonify({
-        'description': todo.description
-     })
+  return redirect(url_for('index'))
 
 
 @app.route('/')
