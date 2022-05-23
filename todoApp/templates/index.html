@@ -1,8 +1,18 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Todo App</title>
   </head>
   <body>
+    <form method="post" action="/todos/create">
+      <div>
+        <label for="name">Create a To-do Item</label><br/>
+        <input type="text" name="description" />
+      </div>
+      <div>
+        <input type="submit" value="Create" />
+      </div>
+    </form>
     <ul>
       {% for d in data %}
       <li>{{ d.description }}</li>
